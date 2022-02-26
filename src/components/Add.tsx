@@ -9,6 +9,7 @@ export const AddItem: FC<AddItemProps> = ({ onClick }) => {
 
   return (
     <div>
+      <h2>Create a task</h2>
       <input
         type="text"
         onChange={(e) => setInputText(e.target.value)}

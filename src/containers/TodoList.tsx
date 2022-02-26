@@ -21,6 +21,7 @@ const mapStateToProps = (state: RootState, ownProps: ListProps) => {
   };
   return {
     items: getTodoList(),
+    currentFilter: state.visibilityFilter,
   };
 };
 

@@ -1,15 +1,26 @@
 import { FC } from "react";
 import { Dispatch } from "redux";
-import { REMOVE_TODO, TOGGLE_TODO } from "../redux/constants/todoList";
+import {
+  REMOVE_TODO,
+  TOGGLE_TODO,
+  UPDATE_TODO,
+} from "../redux/constants/todoList";
+import {
+  SHOW_ALL,
+  SHOW_COMPLETED,
+  SHOW_PENDING,
+} from "../redux/constants/visibilityFilter";
 import { TodoListActionPayload } from "../redux/types/todoList";
+import { FilterType } from "../redux/types/visibilityFilter";
 import { ListItem } from "./ListItem";
 
 export interface ListProps {
   items?: TodoListActionPayload[];
   dispatch?: Dispatch;
+  currentFilter?: FilterType;
 }
 
-export const List: FC<ListProps> = ({ items, dispatch, ...rest }) => {
+export const List: FC<ListProps> = ({ items, currentFilter, dispatch }) => {
   const handleDispatchAction = (
     type: string,
     payload: TodoListActionPayload
@@ -19,23 +30,28 @@ export const List: FC<ListProps> = ({ items, dispatch, ...rest }) => {
     }
   };
 
-  return (
-    <div>
-      {items &&
-        items.length > 0 &&
-        items.map((item) => (
+  if (!items) return <div>Loading...</div>;
+  else if (items.length === 0 && currentFilter === SHOW_ALL)
+    return <div>This looks empty, create a new task</div>;
+  else if (items.length === 0 && currentFilter === SHOW_COMPLETED)
+    return <div>You don't have completed tasks yet</div>;
+  else if (items.length === 0 && currentFilter === SHOW_PENDING)
+    return <div>You don't have pending tasks yet</div>;
+  else
+    return (
+      <div>
+        {items.map(({ id, completed, text }) => (
           <ListItem
-            key={item.id}
-            completed={item.completed}
-            text={item.text}
-            onCheckboxClick={() =>
-              handleDispatchAction(TOGGLE_TODO, { id: item.id })
-            }
-            onDeleteClick={() =>
-              handleDispatchAction(REMOVE_TODO, { id: item.id })
+            key={id}
+            completed={completed}
+            text={text}
+            onCheckboxClick={() => handleDispatchAction(TOGGLE_TODO, { id })}
+            onDeleteClick={() => handleDispatchAction(REMOVE_TODO, { id })}
+            onUpdateClick={(text) =>
+              handleDispatchAction(UPDATE_TODO, { id, text })
             }
           />
         ))}
-    </div>
-  );
+      </div>
+    );
 };
