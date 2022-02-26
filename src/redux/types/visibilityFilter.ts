@@ -6,9 +6,9 @@ import {
 } from "../constants/visibilityFilter";
 
 type ActionType = typeof SET_VISIBILITY_FILTER;
-type FilterProp = typeof SHOW_ALL | typeof SHOW_COMPLETED | typeof SHOW_PENDING;
+export type FilterType = typeof SHOW_ALL | typeof SHOW_COMPLETED | typeof SHOW_PENDING;
 
 export interface VisibilityFilterAction {
   type: ActionType;
-  payload: FilterProp;
+  payload: FilterType;
 }

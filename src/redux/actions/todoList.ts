@@ -15,21 +15,21 @@ export function addTodo(text: string): TodoListAddAction {
   };
 }
 
-export function removeTodo(index: number): TodoListRemoveAction {
+export function removeTodo(id: number): TodoListRemoveAction {
   return {
     type: REMOVE_TODO,
-    payload: index,
+    payload: { id },
   };
 }
 
 export function toggleTodo(
-  index: number,
+  id: number,
   completed: boolean
 ): TodoListToggleAction {
   return {
     type: TOGGLE_TODO,
     payload: {
-      index,
+      id,
       completed,
     },
   };

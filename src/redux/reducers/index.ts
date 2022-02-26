@@ -3,6 +3,6 @@ import { visibilityFilterReducer } from "./visibilityFilter";
 import { todoListReducer } from "./todoList";
 
 export const reducers = combineReducers({
-  visibilityFilterReducer,
-  todoListReducer,
+  visibilityFilter: visibilityFilterReducer,
+  todoList: todoListReducer,
 });

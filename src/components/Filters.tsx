@@ -1,7 +1,8 @@
+import { FC } from "react";
 import { ButtonFilter } from "../containers/FilterButton";
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_PENDING } from "../redux/constants/visibilityFilter";
 
-export const Filters = () => {
+export const Filters: FC = () => {
   return (
     <div className="App">
       <ButtonFilter filter={SHOW_ALL}>SHOW ALL</ButtonFilter>
