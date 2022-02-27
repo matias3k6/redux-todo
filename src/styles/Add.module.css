@@ -1,0 +1,26 @@
+.container {
+}
+
+.title {
+  width: 100%;
+  padding-bottom: 12px;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+}
+
+.textfield {
+  font-size: var(--font-size-input);
+  padding: 7px 8px;
+  border-radius: 0;
+  border-width: 1px;
+  border-color: var(--color-green-700);
+  min-width: 240px;
+}
+
+.textfield:focus {
+  padding: 6px 7px;
+  border-width: 2px;
+}

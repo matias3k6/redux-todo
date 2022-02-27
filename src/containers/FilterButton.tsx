@@ -12,7 +12,7 @@ interface OwnProps {
 
 const mapStateToProps = (state: any, ownProps: OwnProps) => {
   return {
-    active: ownProps.filter === state.visibilityFilter,
+    disabled: ownProps.filter === state.visibilityFilter,
   };
 };
 
@@ -24,7 +24,7 @@ const mapDispatchToProps = (dispatch: Dispatch, ownProps: OwnProps) => {
   };
 };
 
-export const ButtonFilter = connect(
+export const FilterButton = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Button);

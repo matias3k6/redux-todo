@@ -1,0 +1,26 @@
+.button {
+  cursor: pointer;
+  font-size: var(--font-size-input);
+  border-radius: 0;
+  border-width: 0;
+  padding: 8px 16px;
+  background-color: var(--color-green-700);
+  color: var(--color-light);
+}
+
+.button:hover {
+  background-color: var(--color-green-600);
+}
+
+.button:focus {
+  background-color: var(--color-green-800);
+}
+
+.button:active {
+  background-color: var(--color-green-900);
+}
+
+.button:disabled {
+  cursor: default;
+  background-color: var(--color-green-500);
+}

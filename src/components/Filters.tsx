@@ -1,13 +1,13 @@
 import { FC } from "react";
-import { ButtonFilter } from "../containers/FilterButton";
+import { FilterButton } from "../containers/FilterButton";
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_PENDING } from "../redux/constants/visibilityFilter";
 
 export const Filters: FC = () => {
   return (
-    <div className="App">
-      <ButtonFilter filter={SHOW_ALL}>SHOW ALL</ButtonFilter>
-      <ButtonFilter filter={SHOW_COMPLETED}>SHOW COMPLETED</ButtonFilter>
-      <ButtonFilter filter={SHOW_PENDING}>SHOW PENDING</ButtonFilter>
+    <div>
+      <FilterButton filter={SHOW_ALL}>SHOW ALL</FilterButton>
+      <FilterButton filter={SHOW_COMPLETED}>SHOW COMPLETED</FilterButton>
+      <FilterButton filter={SHOW_PENDING}>SHOW PENDING</FilterButton>
     </div>
   );
 };
