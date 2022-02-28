@@ -1,0 +1,14 @@
+.textfield {
+  flex: 1;
+  font-family: Poppins;
+  font-size: var(--font-size-input);
+  padding: 7px 8px;
+  border-radius: 0;
+  border-width: 1px;
+  border-color: var(--color-green-700);
+}
+
+.textfield:focus {
+  padding: 6px 7px;
+  border-width: 2px;
+}

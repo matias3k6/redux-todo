@@ -13,6 +13,7 @@ import {
 import { TodoListActionPayload } from "../redux/types/todoList";
 import { FilterType } from "../redux/types/visibilityFilter";
 import { ListItem } from "./ListItem";
+import styles from "../styles/List.module.css";
 
 export interface ListProps {
   items?: TodoListActionPayload[];
@@ -30,13 +31,19 @@ export const List: FC<ListProps> = ({ items, currentFilter, dispatch }) => {
     }
   };
 
-  if (!items) return <div>Loading...</div>;
+  if (!items) return <div className={styles.message}>Loading...</div>;
   else if (items.length === 0 && currentFilter === SHOW_ALL)
-    return <div>This looks empty, create a new task</div>;
+    return (
+      <div className={styles.message}>This looks empty, create a new task</div>
+    );
   else if (items.length === 0 && currentFilter === SHOW_COMPLETED)
-    return <div>You don't have completed tasks yet</div>;
+    return (
+      <div className={styles.message}>You don't have completed tasks</div>
+    );
   else if (items.length === 0 && currentFilter === SHOW_PENDING)
-    return <div>You don't have pending tasks yet</div>;
+    return (
+      <div className={styles.message}>You don't have pending tasks</div>
+    );
   else
     return (
       <div>

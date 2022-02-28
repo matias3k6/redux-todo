@@ -20,6 +20,8 @@
 .title {
   padding: 12px 16px;
   border-top: var(--border-green-700);
+  color: var(--color-green-800);
+  font-weight: 700;
 }
 
 .actions {
@@ -28,6 +30,5 @@
 }
 
 .list {
-  padding: 12px 16px;
   flex: 1;
 }
